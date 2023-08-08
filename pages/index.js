@@ -1,4 +1,6 @@
 import {useState} from 'react';
+import Link from 'next/link';
+
 
 const TodoApp = () => {
   const [todos, setTodos] = useState([]);
@@ -22,29 +24,40 @@ const TodoApp = () => {
   };
 
   return (
-    <div className="container">
-      <h1>Todo App</h1>
-      <form onSubmit={addTodo}>
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Add a new todo"
-        />
-        <div className='btn'>
-          <button type="submit">Add Todo</button>
+    <div>
+      <div className='navbar'>
+        <div className='box'>
+          <Link href='/about'>About</Link>
         </div>
-      </form>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id} className={`todo-item ${todo.done ? "done" : ""}`}>
-            <span onClick={() => markTodo(todo.id)}>{todo.text}</span>
-            <button className="delete" onClick={() => deleteTodo(todo.id)}>
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
+        <div className='box'>
+          <Link href="/contact">Contact</Link>
+        </div>
+      </div>
+      <div className="container">
+        <img src="/image.webp" alt='webp' />
+        <h1>Todo App</h1>
+        <form onSubmit={addTodo}>
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Add a new todo"
+          />
+          <div className='btn'>
+            <button type="submit">Add Todo</button>
+          </div>
+        </form>
+        <ul>
+          {todos.map((todo) => (
+            <li key={todo.id} className={`todo-item ${todo.done ? "done" : ""}`}>
+              <span onClick={() => markTodo(todo.id)}>{todo.text}</span>
+              <button className="delete" onClick={() => deleteTodo(todo.id)}>
+                Delete
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

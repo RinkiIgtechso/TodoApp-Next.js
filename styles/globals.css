@@ -78,3 +78,28 @@ button.delete {
   background-color: red;
   margin-bottom:10px;
 }
+
+.navbar{
+  padding: 25px;
+  display: flex;
+  justify-content: end;
+  gap: 15px;
+}
+
+.box{
+  padding:12px 22px;
+  width: auto; 
+  height: auto;
+  background-size: 100% 200%;
+  background-image: linear-gradient(to bottom, #E6F1F8 50%, #0071bd 50%);
+  -webkit-transition: background-position 1s;
+  -moz-transition: background-position 1s;
+  transition: background-position 1s;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.box:hover {
+  background-position: 0 -100%;
+  color:white;
+}
